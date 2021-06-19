@@ -1,0 +1,369 @@
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>
+  </head>
+  <body>
+  <SCRIPT LANGUAGE="JavaScript">
+  
+	var brushSize = 20
+	var brushType = 0
+	var brushColorR = 0
+	var brushColorG = 0
+	var brushColorB = 0
+	var brushTypesButtons = 1
+	var brushBox = 1295
+	var brushBox2 = 1355
+	var rectBrush = 1315
+	var circBrush = 1325
+	var triBrush = 1325
+	var triBrush2 = 1315
+	var triBrush3 = 1335
+	var eraser = 1325
+	var clearButton = 1305
+	var boxClear = 1290
+	var brushTypeTest = 0
+	var colorBox = 0
+	var colorBox2 = 60
+	var redBrush = 20
+	var blueBrush = 20
+	var greenBrush = 20
+	var yellowBrush = 20
+	var blackBrush = 20
+	var colorClear = 61
+	
+	
+	function setup(){
+		
+		createCanvas(1350,645)
+		stroke(0)
+		strokeWeight(2)
+		fill(255)
+		rect(0,0,1350,645)
+		
+		
+	}
+	
+	function draw(){
+		
+		brushTypes()
+		brushColors()
+		buttonMovement()
+
+			
+	}
+	
+	function mousePressed(){
+	
+		if(brushType == 1){
+		
+			noStroke()
+			fill(brushColorR,brushColorG,brushColorB)
+				rect(mouseX - (brushSize/2),mouseY - (brushSize/2),brushSize,brushSize)
+		
+		}
+		
+		else if(brushType == 2){
+		
+			noStroke()
+			fill(brushColorR,brushColorG,brushColorB)
+				ellipse(mouseX,mouseY,brushSize,brushSize)
+		
+		}
+		
+		else if(brushType == 3){
+		
+			noStroke()
+			fill(brushColorR,brushColorG,brushColorB)
+				triangle(mouseX,mouseY - brushSize/2,mouseX - brushSize/2,mouseY + brushSize/2,mouseX + brushSize/2,mouseY + brushSize/2)
+		
+		}
+		
+		else if (brushType == 4){
+		
+			noStroke()
+			fill(255)
+				ellipse(mouseX,mouseY,brushSize,brushSize)
+		
+		}
+	
+		if(brushTypeTest == 1){
+		
+			if(mouseY > 150 && mouseY < 200){
+			
+				brushType = 1
+			
+			}
+			
+			else if(mouseY > 200 && mouseY < 250){
+			
+				brushType = 2
+			
+			}
+			
+			else if(mouseY > 250 && mouseY < 300){
+			
+				brushType = 3
+			
+			}
+			
+			else if(mouseY > 300 && mouseY < 350){
+			
+				brushType = 4
+			
+			}
+			
+			else if(mouseY > 350 && mouseY < 400){
+			
+				stroke(0)
+				strokeWeight(2)
+				fill(255)
+				rect(0,0,1350,645)
+			
+			}
+			
+		}	
+	
+		if(brushColorTest == 1){
+		
+			if(mouseY > 150 && mouseY < 200){
+			
+				brushColorR = 252
+				brushColorG = 42
+				brushColorB = 42 
+			
+			}
+			
+			else if(mouseY > 200 && mouseY < 250){
+			
+				brushColorR = 69
+				brushColorG = 244
+				brushColorB = 66
+			
+			}
+			
+			else if(mouseY > 250 && mouseY < 300){
+			
+				brushColorR = 2
+				brushColorG = 103
+				brushColorB = 255
+			
+			}
+			
+			else if(mouseY > 300 && mouseY < 350){
+			
+				brushColorR = 255
+				brushColorG = 247
+				brushColorB = 33
+			
+			}
+			
+			else if(mouseY > 350 && mouseY < 400){
+			
+				brushColorR = 0
+				brushColorG = 0
+				brushColorB = 0
+			
+			}
+			
+		}
+	
+	}
+	
+	function mouseDragged(){
+		
+		if(brushType == 1){
+		
+			noStroke()
+			fill(brushColorR,brushColorG,brushColorB)
+				rect(mouseX - (brushSize/2),mouseY - (brushSize/2),brushSize,brushSize)
+		
+		}
+		
+		else if(brushType == 2){
+		
+			noStroke()
+			fill(brushColorR,brushColorG,brushColorB)
+				ellipse(mouseX,mouseY,brushSize,brushSize)
+		
+		}
+		
+		else if(brushType == 3){
+		
+			noStroke()
+			fill(brushColorR,brushColorG,brushColorB)
+				triangle(mouseX,mouseY - brushSize/2,mouseX - brushSize/2,mouseY + brushSize/2,mouseX + brushSize/2,mouseY + brushSize/2)
+		
+		}
+		
+		else if (brushType == 4){
+		
+			noStroke()
+			fill(255)
+				ellipse(mouseX,mouseY,brushSize,brushSize)
+		
+		}
+		
+	}
+	
+	function brushColors(){
+	
+			stroke(0)
+			strokeWeight(1)
+			fill(255)
+				rect(colorBox,150,60,250)
+				line(colorBox,200,colorBox2,200)
+				line(colorBox,250,colorBox2,250)
+				line(colorBox,300,colorBox2,300)
+				line(colorBox,350,colorBox2,350)
+			noStroke()
+			fill(252, 42, 42)
+				rect(redBrush,165,20,20)
+			fill(69, 244, 66)
+				rect(greenBrush,215,20,20)
+			fill(2, 103, 255)
+				rect(blueBrush,265,20,20)
+			fill(255, 247, 33)
+				rect(yellowBrush,315,20,20)
+			fill(0)
+				rect(blackBrush,365,20,20)
+	
+	}
+  
+	function brushTypes(){
+		
+			stroke(0)
+			strokeWeight(1)
+			fill(255)
+				rect(brushBox,150,59,250)
+				line(brushBox,200,brushBox2,200)
+				line(brushBox,250,brushBox2,250)
+				line(brushBox,300,brushBox2,300)
+				line(brushBox,350,brushBox2,350)
+			noStroke()
+			fill(0)
+				rect(rectBrush,165,20,20)
+				ellipse(circBrush,225,20,20)
+				triangle(triBrush,265,triBrush2,285,triBrush3,285)
+			stroke(0)
+			fill(255)
+				ellipse(eraser,325,20,20)
+			textSize(16)
+			fill(0)
+				text("Clear",clearButton,380)
+	
+	}
+	
+	function brushSettings(){
+	
+	
+	
+	}
+	
+	function buttonMovement(){
+	
+		if(mouseX >= 1295 && brushBox >= 1295){
+		
+			brushBox -= 5
+			brushBox2 -= 5
+			rectBrush -= 5
+			circBrush -= 5
+			triBrush -= 5
+			triBrush2 -= 5
+			triBrush3 -= 5
+			eraser -= 5
+			clearButton -= 5
+			boxClear -= 5
+			
+			brushTypeTest = 1
+	
+		}
+		
+		else if(brushBox <= 1400 && mouseX < 1295){
+		
+			brushBox += 5
+			brushBox2 += 5
+			rectBrush += 5
+			circBrush += 5
+			triBrush += 5
+			triBrush2 += 5
+			triBrush3 += 5
+			eraser += 5
+			clearButton += 5	
+			
+			noStroke()
+			fill(255)
+				rect(boxClear,150,5,251)
+			
+			boxClear += 5
+		
+		}
+		
+		if(brushBox > 1350){
+			
+			stroke(0)
+			line(1349,150,1349,400)
+			
+			brushTypeTest = 0 
+			
+		}
+		
+		if(mouseX <= 60 && colorBox + 60 < 60){
+		
+			colorBox += 5
+			colorBox2 += 5
+			redBrush += 5
+			blueBrush += 5
+			greenBrush += 5
+			yellowBrush += 5
+			blackBrush += 5
+			colorClear += 5
+			
+			brushColorTest = 1
+	
+		}
+		
+		else if(colorBox >= -110 && mouseX > 60){
+		
+			colorBox -= 5
+			colorBox2 -= 5
+			redBrush -= 5
+			blueBrush -= 5
+			greenBrush -= 5
+			yellowBrush -= 5
+			blackBrush -= 5
+			
+			noStroke()
+			fill(255)
+				rect(colorClear,150,5,251)
+			
+			colorClear -= 5
+		
+		}
+		
+		if(colorBox < 0){
+			
+			stroke(0)
+			line(0,150,0,400)
+			
+			brushColorTest = 0 
+			
+		}
+	}
+	
+	function keyPressed(){
+		
+		if(keyCode == ENTER){
+			
+			saveCanvas("MyDrawing","png")
+			
+		}
+
+	}
+	
+	
+  </SCRIPT>
+  </body>
+</html>
+
+
+
